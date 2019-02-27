@@ -1,3 +1,5 @@
+<div dir="rtl">
+
 # بوف
 
 بوف یک موتور قالب ساده و سریع می باشد.
@@ -20,24 +22,41 @@
 - امکان استفاده از یونیکد در رشته داخل تگ
 - استفاده از کش کردن نتیجه کامپایل جهت بهبود پرفرمنس
 
-# Boof class
+
+
+# کلاس Boof
+
+</div>
 
 ## Boof(path,debug_mode=false)
 
+<div dir="rtl">
+
 * path : مسیر جهت مشخص کردن مکان فایل های قالب,در دایرکتوری ".cache" فایل های کش ذخیره می گردند
 * debug_mode : اگر این مقدار true باشد تگ های debug نیز اجرا می گردند
+
+</div>
+
 ```php
 $viewPath= dirname ( __FILE__ ).'/views' ;
 
 $boof=new Boof($viewPath);
 ```
-## method
+<div dir="rtl">
+
+## متد
+
+</div>
 
 ### set_path(path)
+
+<div dir="rtl">
 
 تغییر مسیر فایل های قالب
 
 * path : مسیر جدید
+
+</div>
 
 ```php
 $viewPath= dirname ( __FILE__ ).'/views2' ;
@@ -45,12 +64,17 @@ $viewPath= dirname ( __FILE__ ).'/views2' ;
 $boof->set_path($viewPath);
 
 ```
+
 ### view(name,env=[]) 
+
+<div dir="rtl">
 
 رندر یک فایل و برگرداندن نتیجه
 
 * name : نام فایل ,برای جداکنده دایرکتوری از نقطه استفاده می گردد 
 * env : آرایه انجمنی از اطلاعات
+
+</div>
 
 ```php
 $boof->view('users.list',['title'=>'user list','items'=>$lists]);
@@ -59,11 +83,14 @@ $boof->view('users.list',['title'=>'user list','items'=>$lists]);
 
 ### render(src,env=[]) 
 
+<div dir="rtl">
+
 رندر متن قالب و برگرداندن نتیجه
 
 * src : متن قالب
 * env : آرایه انجمنی از اطلاعات
 
+</div>
 
 ```php
 $boof->render('<h1>{{title}}</h1>',['title'=>'user list']);
@@ -71,16 +98,22 @@ $boof->render('<h1>{{title}}</h1>',['title'=>'user list']);
 
 ### add_function(name, func)
 
+<div dir="rtl">
+
 اضافه کردن تابع خارجی به تمپلت
 
 * name : نام تابع جهت استفاده در تمپلت
 * func : عنصر قابل فراخوانی که مقدار رشته ریندر شده را برمی گرداند
+
+</div>
 
 ```php
 $boof->add_function("hello",function($name){return "hello ,".$name; });
 echo $boof->render('{{hello "seyed rahim" }}');
 
 ```
+<div dir="rtl">
+
 # قالب
 
 ## برچسب یا تگ
@@ -93,27 +126,40 @@ echo $boof->render('{{hello "seyed rahim" }}');
 
 مثال
 
+</div>
+
 ```
     hello , <b> {{ your.name }} </b>
     {{format "%s-%s-%s" 2019 1 1 }}
 
 ```
 
+<div dir="rtl">
+
 درصورت تعریف زیر
+
+</div>
 
 your.name = "Seyed Rahim Firouzi"
 
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
     hello , <b> Seyed Rahim Firouzi </b>
     2019-1-1
 ```
 
+<div dir="rtl">
+
 ## توضیحات
  
 جهت نوشتن توضیحات درون تگ کافی است با // توضیحات را شروع کرد. توضیحات ادامه می یابد تا رسیدن به انتهای تگ . امکان نوشتن توضیحات چند خطی نیز وجود دارد
 
+</div>
 
 ```
 {{var name = "Seyed Rahim" // this is comment}}
@@ -122,9 +168,13 @@ your.name = "Seyed Rahim Firouzi"
 multi line comment}}
 ```
 
+<div dir="rtl">
+
 ## فاصله پاک
 
 اگر تگ با بعد از شروع با - و قبل از پایان با - باشد.فواصل قبل و بعد حذف می گردد.
+
+</div>
 
 ```
 123
@@ -133,7 +183,12 @@ line3
 don't remove  {{ "|" -}}    remove space
 remove space  {{- "|" }}    don't remove
 ```
-جروجی
+
+<div dir="rtl">
+
+خروجی
+
+</div>
 
 ```
 1234
@@ -143,12 +198,15 @@ remove space|    don't remove
 
 ```
 
+<div dir="rtl">
 
 ## متغیر
 
 مقادیر توسط متغیر ها به موتور قالب ارجاع داده شده یا در سطح قالب تعریف می گردند. نام متغیر از استاندارد زبان برنامه نویسی سی تبعیت می کند و برای دسترسی به آیتم های شی از نقطه استفاده می گردد.برای آرایه اینکس آیتم جهت اشاره استفاده می گردد.ضمنا متغیر های زبان داینامیک می باشند قابلیت تغیر نوع به صورت اتوماتیک دارند
 
 چند مثال
+
+</div>
 
 ```
 ali  
@@ -157,6 +215,8 @@ array.2
 layout.content
 red5
 ```
+
+<div dir="rtl">
 
 ## نوع متغیر
 
@@ -167,11 +227,13 @@ red5
 
 این نوع متغیر در اصل به معنای عدم تعریف یا عدم وجود می باشد و در عمل وجود نداشتن معنی می دهد.در تبدیل به رشته "" می شود
 
-مقادیر استاتیک
+ </div>
 
 ```
 {{var data = null }}
 ```
+
+<div dir="rtl">
 
 ### bool
 
@@ -180,11 +242,13 @@ red5
 - true
 - false
 
-مقادیر استاتیک
+</div>
 
 ```
 {{ var data = true}}
 ```
+
+<div dir="rtl">
 
 ### number
 
@@ -192,9 +256,13 @@ red5
 
 مقادیر استاتیک
 
+</div>
+
 ```
 {{ var data = 12.34 }}
 ```
+
+<div dir="rtl">
 
 ### string
 
@@ -206,34 +274,39 @@ red5
 - \\\ کارکتور \
 - \t کارکتور تب
 
-مقادیر استاتیک
+</div>
 
 ```
 {{ var data = "this is a book \n این یک کتاب هست" }}
 ```
 
+<div dir="rtl">
 
 ### array
 
 مجمعه از مقادیر .جهت تعریف ارایه مقدادیر درون [,] وتوسط , از هم جدا می گردد
 
-مقادیر استاتیک
+</div>
 
 ```
 {{ var data=[1,2,3,4]}}
 ```
+<div dir="rtl">
 
 ### object
 
 لیست از اجرای کلیدومقدار . جهت تعریف لیست درون {,} می باشد که توسط , ازهم جدا شده و کلید ها و مقدار ها نیز توسط : از هم جدا می گرددند
 
-مقادیر استاتیک
+</div>
 
 ```
 {{ var obj ={ name:"rahim", books:20  } }}
 ```
+<div dir="rtl">
 
 مثال
+
+</div>
 
 ```
 {{ null }} 
@@ -243,6 +316,8 @@ red5
 {{ [ false , 123 , "hello" ] }}
 {{ {color : "blue" , age : 22}  }}
 ```
+
+<div dir="rtl">
 
 ## مقادیر دروغین
 
@@ -273,6 +348,8 @@ red5
 
 ساختار کد
 
+</div>
+
 ```
 {{ if ...}}
  بخش که وقتی شرط صحیح باشد اجرا می گردد
@@ -281,7 +358,11 @@ red5
 {{end}}
 ```
 
+<div dir="rtl">
+
 بخش نادرست قابل حذف شدن می باشد
+
+</div>
 
 ```
 {{ if ...}}
@@ -289,9 +370,13 @@ red5
 {{end}}
 ```
 
+<div dir="rtl">
+
 #### با اپراتور ها
 
 در این روش از اپراتورهای زیر جهت تعریف شرط استفاده می گردد
+
+</div>
 
 ```
 {{ if var1 operator var2}}
@@ -300,6 +385,8 @@ red5
  بخش که وقتی شرط نادرست باشد اجرا می گردد
 {{end}}
 ```
+
+<div dir="rtl">
 
 لیست اپراتورها
  1. (==) مساوی
@@ -312,6 +399,8 @@ red5
 
 مثال
 
+</div>
+
 ```
 {{ var garde = 20 }}
 {{ if grade >= 3 }}
@@ -320,16 +409,24 @@ red5
     this is bad grade
 {{end}}
 ```
+
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
    this is best grade
 ```
 
+<div dir="rtl">
+
 #### بدون اپراتور
 
 در این روش فقط حالت مقادیر چک می شود.در صورت صحیح بودن بلوک شرط اجرا می گردد.جدول مقادیر دروغین در این محل کاربرد فراوان دارد.
 
+</div>
 
 ```
 {{ if var1 }}
@@ -340,22 +437,33 @@ red5
 
 ```
 
+<div dir="rtl">
+
 مثال
+
+</div>
 
 ```
 {{var holiday = true}}
 {{ if holiday }} chose best day,{{end}}
 ```
+
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
  chose best day,
 ```
-
+<div dir="rtl">
 
 ### for 
 
 جهت تعریف حلفه در سطح قالب کاربرد دارد. هر بار برای آیتم های ارایه یا شی ارجاعی مقادیر را در متغیر اول قرار داده و بلوک حلقه اجرا می گردد.
+
+</div>
 
 ```
 {{ for var1 in array}}
@@ -364,6 +472,7 @@ red5
  در صورت دروغین بودن ارایه ارجاعی این بخش اجرا می گردد
 {{end}}
 ```
+<div dir="rtl">
 
 ضمنا درون حلقه متغیر های زیر دارای مقدار می باشند
 
@@ -378,6 +487,8 @@ red5
 
 ** index آیتم اول برابر با صفر است
 
+</div>
+
 ```
 {{ var list = [1,2,3,4] }}
 {{ for ele in list }}
@@ -385,7 +496,12 @@ red5
 {{ end }}
 ```
 
+<div dir="rtl">
+
 خروجی
+
+</div>
+
 
 ```
    1 - 1 <br/>
@@ -394,9 +510,13 @@ red5
    4 - 4 <br/>
 ```
 
+<div dir="rtl">
+
 ### debug
 
 در صورتی موتور قالب در وضعیت عیب یابی یا دیباگ باشد بلوک موجود اجرا می گردد.در حالت معمول این قسمت اجرا نمی گردد
+
+</div>
 
 ```
 {{debug}}
@@ -407,9 +527,13 @@ red5
 {{end}
 ```
 
+<div dir="rtl">
+
 ### macro
 
 جهت تعریف یک تابع در درون قالب کاربرد دارد.تابع به وجود آمده قابلیت ریکرسیو را دارا بوده و کاملا نسبت به متغیر هی خارج تابع سند باکس می باشد
+
+</div>
 
 ```
 {{macro macroname param1 param2 ... }}
@@ -417,6 +541,8 @@ red5
 {{end}}
 
 ```
+<div dir="rtl">
+
 - macroname نام ماکرو
 - param1 پارامتر اول
 - param1 پارامتر دوم
@@ -424,12 +550,16 @@ red5
 
 
 
-
 جهت فراخوانی
+
+</div>
 
 ```
 {{macroname param1 param2 ...}}
 ```
+
+<div dir="rtl">
+
 - macroname نام ماکرو
 - param1 پارامتر اول
 - param1 پارامتر دوم
@@ -437,6 +567,8 @@ red5
 
 
 مثال
+
+</div>
 
 ```
 {{macro call a b}}
@@ -447,13 +579,19 @@ red5
 {{ say "bob" "alice"}}
 
 ```
+
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
 
 seyed rahim call ali for work <br/>
 bob call alice for work <br/> 
 ```
+<div dir="rtl">
 
 ## آیتم ها
 
@@ -461,9 +599,13 @@ bob call alice for work <br/>
 
 جهت مقدار دهی به متغیر ها استفاده می گردد
 
+</div>
+
 ```
 var varableName = data
 ```
+
+<div dir="rtl">
 
 - varableName نام متغیر
 - data مقدار جهت قرار دادن در متغیر 
@@ -478,6 +620,7 @@ var varableName = data
 4. توابع نیتیو 
 5. ماکرو
 
+</div>
 
 ```
 {{ var name = "salam"}}
@@ -487,6 +630,8 @@ var varableName = data
 {{ var data = userFunc p1 p2 p3 }}
 {{ var form = macroName p1 p2 p3 }}
 ```
+
+<div dir="rtl">
 
 ### مقادیر محاصباتی
 
@@ -500,6 +645,7 @@ var varableName = data
 5. (%) برابر با اپراتور باقیمانده ریاضی
 6. (~) چسباندن دو به فرم رشته.در صورتی که مقادیر رشته نباشند به رشته تبدیل گردد
 
+</div>
 
 ```
 {{ 1 + 2 * 3}}
@@ -507,7 +653,11 @@ var varableName = data
 {{ "hello " ~ "world"}}
 ```
 
+<div dir="rtl">
+
 خروجی
+
+</div>
  
 ```
 9
@@ -515,6 +665,7 @@ var varableName = data
 hello world
 ```
 
+<div dir="rtl">
 
 ### بولتین
 
@@ -535,9 +686,13 @@ hello world
 
 جهت استفاده ساده تر از شرط و نتیجه در خروجی چاپ می گردد
 
+</div>
+
 ```
 {{ ? condtion truePart FalsePart }}
 ```
+
+<div dir="rtl">
 
 - condtion مقدار بولین  جهت شرط
 - truePart مقدار چاپ شده در خروجی در صورت درستی شرط
@@ -546,26 +701,35 @@ hello world
 
 مثال
 
+</div>
+
 ```
 {{ ?  true  "this is true"  "this is false"}}
 ```
 
-output:
+<div dir="rtl">
+
+خروجی
+
+</div>
 
 ```
 this is true
 ```
 
-
+<div dir="rtl">
 
 #### !
 
 برای کد دردن به اچ دی ام ال
 
+</div>
 
 ```
 {{ ! data }}
 ```
+
+<div dir="rtl">
 
 - data مقداری که می بایست کد شود
 
@@ -575,9 +739,13 @@ this is true
 
 برای تبدیل عدد به یک کیس خاص
 
+</div>
+
 ```
 enum number caseZero caseOne caseTwo ...
 ```
+
+<div dir="rtl">
 
 - number عدد جهت بررسی
 - caseZero در صورت صفر بودن عدد بررسی این مقدار چاپ می شود
@@ -585,13 +753,19 @@ enum number caseZero caseOne caseTwo ...
 - caseTwo در صورت دو بودن عدد بررسی این مقدار چاپ می شود
 - ...
 
+
+
 #### %
 
 برای کد کردن به یو ار ال
 
+</div>
+
 ```
 {{ % data }}
 ```
+
+<div dir="rtl">
 
 - data مقداری که می بایست کد شود
 
@@ -607,9 +781,13 @@ enum number caseZero caseOne caseTwo ...
 2. %h رشته با کدیک اچ تی ام ال
 3. %u رشته با کدیک یو ار ال
 
+</div>
+
 ```
 format formatedString p1 p2 p3 ...
 ```
+
+<div dir="rtl">
 
 - formatedString رشته فرمت دارای سویچ های 
 - p1 متغیر اول
@@ -622,6 +800,8 @@ format formatedString p1 p2 p3 ...
 
 مثال
 
+</div>
+
 ```
 {{ ? true "true" "false" }}
 {{ ! "go->" }} 
@@ -630,7 +810,12 @@ format formatedString p1 p2 p3 ...
 {{ format "%s:%s:%s %h" 12 24 30  ">"}}
 
 ```
+
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
 true
@@ -640,13 +825,20 @@ a+b
 12:24:30 &gt;
 ```
 
+<div dir="rtl">
+
 #### import
 
 جهت ورود یک فایل قالب دیگر در قالب موجود
 
+</div>
+
 ```
 {{import "header"}}
 ```
+
+<div dir="rtl">
+
 نکات مهم 
 
 1. استفاده از نقطه جهت جدا سازی دایرکتوری فایل ها
@@ -665,6 +857,8 @@ a+b
 
 
 # مثال
+
+</div>
 
 lay.html
 
@@ -700,20 +894,28 @@ seyed rahim
 </div>
 ```
 
+<div dir="rtl">
+
 ### توابع نیتیو
  
 توابعی که از خارج از موتور قالب به آن معرفی می گردد می باشند روش فراخوانی همانند ماکرو می باشد 
 
 جهت فراخوانی
 
+</div>
+
 ```
 {{fun param1 param2 ...}}
 ```
+
+<div dir="rtl">
 
 - fun  نام تابع نیتیو
 - param1 پارامتر اول
 - param1 پارامتر دوم
 - ...
+
+
 
 ### متغیر
 
@@ -721,10 +923,17 @@ seyed rahim
 
 مثال
 
+</div>
+
 ```
 {{ "hello,world"}}
 ```
+
+<div dir="rtl">
+
 خروجی
+
+</div>
 
 ```
 hello,world
