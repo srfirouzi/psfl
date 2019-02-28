@@ -311,7 +311,7 @@ class DataBase{
      * @return NULL|array element by associative array format
      */
     function get_id($table,$id=''){
-        $sql = "DELETE FROM " .  $this->table_perfix .$table  .' WHERE `id` =  :id ';
+        $sql = "SELECT * FROM " .  $this->table_perfix .$table  .' WHERE `id` =  :id ';
         $items=$this->query($sql,['id'=>$id]);
         if(count($items)>0){
             return $items[0];
