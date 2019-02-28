@@ -103,8 +103,8 @@ class Request{
      * for set parameters by router engine
      * @param array $param
      */
-    public function set_parameters($param){
-        $this->_params=$param;
+    public function set_parameter($key,$value){
+        $this->_params[$key]=$value;
     }
     /**
      * return query value
